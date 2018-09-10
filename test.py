@@ -1,0 +1,2 @@
+country = "hello"
+del country

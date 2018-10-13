@@ -1,0 +1,47 @@
+import sys 
+import random
+
+def userMenu():
+    menuInput = input("""
+    Welcome to Dog Trumps!
+        Please select an option
+        1. Play
+        2. Quit""").lower()
+
+        if menuInput == "play":
+            userGame():
+        elif menuInput == "quit":
+            print("Thanks for playing! Exiting...")
+            sys.exit()
+        else:
+            print ("Invalid response, please try again.")
+            userMenu()
+
+def userGame():
+    userdognames =[],[],[],[],[]
+    cpudognames =[],[],[],[],[]
+    cardAmount = int(input("How many cards would you like to play with?"))
+    
+    if cardAmount >31 or cardAmount <3 or cardAmount % 2 != 0:
+        print("""You selected an invalid number, it must fit the following criteria
+            •Be equal to 4 or above
+            •Be equal to 30 or lower
+            •Be a whole, even number""" )
+        userGame()
+    usercards=int(cardAmount/2)
+    cpucards=int(cardAmount/2)
+    u = random.randint(0,cpucards)
+    f = open("dogs.txt", "r")
+    lines = f.read.()splitlines()
+    for i in range (usercards):
+        userdognames[0].append(random.choice(lines))
+        userdognames[1].append(random.randint(1,5))
+        userdognames[2].append(random.randint(1,100))
+        userdognames[3].append(random.randint(1,10))
+        userdognames[4].append(random.randint(1,10))
+    for i in range(usercards):
+        cpudognames[0].append(random.choice(lines))
+        cpudognames[1].append(random.randint(1,5))
+        cpudognames[2].append(random.randint(1,100))
+        cpudognames[3].append(random.randint(1,10))
+        cpudognames[4].append(random.randint(1,10))

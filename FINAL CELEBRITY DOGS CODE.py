@@ -3,7 +3,6 @@ import sys
 import random
 error = ("You have entered an invalid option, please restart and try again.")
 correct = ("Okay thank you")
-blank = ("...")
 victory = ("You win this round!")
 defeat = ("You lose this round!")
 
@@ -73,9 +72,6 @@ for i in range(0, num_of_cards):
         computer_deck.append(dogs_value[i])
 
 print(player_deck)
-print(blank)
-
-c = []
 i = 0
 round = 0
 while len(player_deck) > 0 and len(computer_deck) > 0 and round <= 60:

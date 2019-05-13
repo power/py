@@ -1,0 +1,147 @@
+import sys
+import random
+option = True
+
+def playgame():
+
+    card = True
+    while card == True:
+        error = """
+        your card amount can not be :
+        * Under four
+        * Over thirty
+        * Odd
+            """
+        cards = int(input("How many cards do you want to play?"))
+
+        if cards <4:
+            print(error)
+            card = True
+        elif cards >30:
+            print(error)
+            card = True
+        elif (cards % 2 !=0):
+            print(error)
+            card = True
+        else:
+            print("Thanking you!")
+            break
+
+    all_dogs = []
+    intenlligence = 0
+    friendliness = 0
+    exersize = 0
+    drool = 0
+    current = 0
+    f = open("dogs.txt", "r")
+    for line in f:
+        line = line.rstrip()
+
+        intelligence = random.randint (1,100)
+        friendliness = random.randint (1,10)
+        exersize = random.randint (1,5)
+        drool = random.randint (1,10)
+        all_dogs.append([line, intelligence, friendliness, exersize, drool])
+        current = current + 1
+
+        half = cards / 2#splits into two
+        half = int(half)
+
+    player = []
+    pc = []
+
+    for card in range(0, half):
+        player.append(all_dogs[card])
+
+    for card in range(half, cards):
+        pc.append(all_dogs[card])
+
+    print(player)
+    print(pc)
+
+        #if current >= cards:
+            #break
+    #print(all_dogs)
+
+    print(""" This is your top card:
+        \n""",player[0][0],
+              """\nExercise:""", player[0][1],"""/5\n"""
+              """Intelligence:""", player[0][2],"""/100\n"""
+              """Friendliness:""", player[0][3],"""/10\n"""
+              """Drool:""", player[0][4],"""/10\n""")
+
+    choice = input("""What catagroy do you choose?
+    A. Exersize
+    B. Intelligence
+    C. Friendliness
+    D. Drool
+    """)
+    if choice==("A"):
+        print(""" This is the computers top card:
+        \n""",pc[0][0],
+              """\nExercise:""", pc[0][1],"""/5\n""")
+    elif choice==("B"):
+        print(""" This is the computers top card:
+        \n""",pc[0][0],
+              """Intelligence:""", pc[0][2],"""/100\n""")
+    elif choice==("C"):
+        print(""" This is the computers top card:
+        \n""",pc[0][0],
+              """Friendliness:""", pc[0][3],"""/10\n"""
+    elif choice==("D"):
+        print(""" This is your top card:
+        \n""",pc[0][0],
+              """Drool:""", pc[0][4],"""/10\n""")
+    else:
+        print("invalid input")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+while option:
+    print("""
+Welcome to the celebrity dog game!
+
+Manu
+1* Play the game.
+2* Quit.
+
+""")
+
+    choice = input("Please enter a choice.")
+    if choice=="1":
+        playgame()
+        break
+    elif choice=="2":
+        print("Thankyou for playing.")
+        sys.exit()
+    else:
+        print("Invalid input, please try again.")
+
+
+
+
+
